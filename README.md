@@ -19,6 +19,7 @@ Supported end points:
 * <a href="https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistoday">Historical Daily OHLCV</a>
 * <a href="https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistohour">Historical Hourly OHLCV</a>
 * <a href="https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistominute">Historical Minute OHLCV</a>
+* <a href="https://min-api.cryptocompare.com/data/coin/generalinfo?fsyms=BTC,MLN,DASH&tsym=USD">Coins General Info</a>
 * <a href="https://min-api.cryptocompare.com/documentation?key=Other&cat=allExchangesEndpoint">All Exchanges and Trading Pairs</a>
 * <a href="https://min-api.cryptocompare.com/documentation?key=Other&cat=allCoinsWithContentEndpoint">All the Coins</a>
 <br>
