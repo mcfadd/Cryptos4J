@@ -10,7 +10,7 @@ import org.junit.runners.MethodSorters;
 
 import cryptos.CryptoData;
 import cryptos.CryptoInfo;
-import cryptos.exchanges.CryptoExchanges;
+import cryptos.exchanges.ExchangeStreamer;
 import cryptos.historical.HistoricalDaily;
 import cryptos.historical.HistoricalData;
 import cryptos.historical.HistoricalHourly;
@@ -27,11 +27,11 @@ public class TestMain {
 
 		try {
 			
-			CryptoData coinData = CryptoData.getInstance("USDT", "BTC", CryptoExchanges.exchanges.Binance);
+			CryptoData coinData = CryptoData.getInstance("USDT", "BTC", ExchangeStreamer.exchanges.Binance);
 			coinData.update();
 			assertEquals("USDT", coinData.getCurrencyTo());
 			assertEquals("BTC", coinData.getCurrencyFrom());
-			assertEquals(CryptoExchanges.exchanges.Binance, coinData.getExchange());
+			assertEquals(ExchangeStreamer.exchanges.Binance, coinData.getExchange());
 
 			CryptoInfo coinInfo = CryptoInfo.getInstance("USDT", "BTC");
 			coinInfo.update();
@@ -44,12 +44,12 @@ public class TestMain {
 			
 			coinData.setCurrencyFrom("ETC");
 			coinData.setCurrencyTo("BTC");
-			coinData.setExchange(CryptoExchanges.exchanges.Bitfinex);
+			coinData.setExchange(ExchangeStreamer.exchanges.Bitfinex);
 			coinData.update();
 
 			assertEquals("BTC", coinData.getCurrencyTo());
 			assertEquals("ETC", coinData.getCurrencyFrom());
-			assertEquals(CryptoExchanges.exchanges.Bitfinex, coinData.getExchange());
+			assertEquals(ExchangeStreamer.exchanges.Bitfinex, coinData.getExchange());
 
 			assertEquals("BTC", coinInfo.getCurrencyTo());
 			assertEquals("ETC", coinInfo.getCurrencyFrom());
@@ -98,7 +98,7 @@ public class TestMain {
 
 		try {
 
-			CryptoData coin = CryptoData.getInstance("STD", "BTC", CryptoExchanges.exchanges.Binance);
+			CryptoData coin = CryptoData.getInstance("STD", "BTC", ExchangeStreamer.exchanges.Binance);
 			coin.update();
 			assertTrue(false);
 
@@ -108,7 +108,7 @@ public class TestMain {
 		try {
 
 			HistoricalDaily histoDay = HistoricalData.generateHistoDaily("STD", "BTC",
-					CryptoExchanges.exchanges.Binance);
+					ExchangeStreamer.exchanges.Binance);
 			histoDay.update();
 			assertTrue(false);
 
@@ -118,7 +118,7 @@ public class TestMain {
 		try {
 
 			HistoricalHourly histoHour = HistoricalData.generateHistoHourly("USDT", "BTC",
-					CryptoExchanges.exchanges.Binance);
+					ExchangeStreamer.exchanges.Binance);
 			histoHour.setAggregate(-10);
 			histoHour.update();
 			assertTrue(false);
@@ -129,7 +129,7 @@ public class TestMain {
 		try {
 
 			HistoricalMinute histoMin = HistoricalData.generateHistoMinute("USDT", "BTC",
-					CryptoExchanges.exchanges.Binance);
+					ExchangeStreamer.exchanges.Binance);
 			histoMin.setLimit(-10);
 			histoMin.update();
 			assertTrue(false);

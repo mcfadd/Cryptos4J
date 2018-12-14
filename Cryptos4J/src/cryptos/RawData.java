@@ -1,9 +1,11 @@
 package cryptos;
 
 /**
- * Object equivalent to the 'RAW' json object returned by the <i>min-api.cryptocompare.com/data/generateAvg</i> end point.
+ * Object equivalent to the 'RAW' json object returned by the <a href=
+ * "https://min-api.cryptocompare.com/documentation?key=Price&cat=generateAverageEndpoint">
+ * Generate Custom Average</a> end point.
  * 
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
  * @see CryptoData
  */
@@ -53,7 +55,7 @@ public class RawData {
 		CHANGEPCT24HOUR = changePCT24Hour;
 		CHANGEDAY = changeDay;
 		CHANGEPCTDAY = changePCTDay;
-		
+
 	}
 
 	public String getMARKET() {
@@ -133,7 +135,10 @@ public class RawData {
 	}
 
 	/**
-	 * returns a string representation of the 'RAW' data retrieved from the <i>min-api.cryptocompare.com/data/generateAvg</i> end point.
+	 * returns a string representation of the 'RAW' data retrieved from the <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Price&cat=generateAverageEndpoint">
+	 * Generate Custom Average</a> end point.
+	 * 
 	 * @return dataToString
 	 * @since Cryptos4J v1.0
 	 * @see CryptoData#dataToString()
@@ -142,13 +147,12 @@ public class RawData {
 
 		return "MARKET:  \"" + MARKET + "\"\r\n" + "FROMSYMBOL:  \"" + FROMSYMBOL + "\"\r\n" + "TOSYMBOL:  \""
 				+ TOSYMBOL + "\"\r\n" + "FLAGS: " + FLAGS + "\r\n" + "PRICE: " + PRICE + "\r\n" + "LASTUPDATE: "
-				+ LASTUPDATE + "\r\n" + "LASTVOLUME: " + LASTVOLUME + "\r\n" + "LASTVOLUMETO: " + LASTVOLUMETO
-				+ "\r\n" + "LASTTRADEID:  \"" + LASTTRADEID + "\"\r\n" + "VOLUME24HOUR: " + VOLUME24HOUR + "\r\n"
-				+ "VOLUME24HOURTO: " + VOLUME24HOURTO + "\r\n" + "OPEN24HOUR: " + OPEN24HOUR + "\r\n"
-				+ "HIGH24HOUR: " + HIGH24HOUR + "\r\n" + "LOW24HOUR: " + LOW24HOUR + "\r\n" + "LASTMARKET:  \""
-				+ LASTMARKET + "\"\r\n" + "CHANGE24HOUR: " + CHANGE24HOUR + "\r\n" + "CHANGEPCT24HOUR: "
-				+ CHANGEPCT24HOUR + "\r\n" + "CHANGEDAY: " + CHANGEDAY + "\r\n" + "CHANGEPCTDAY: " + CHANGEPCTDAY
-				+ "\n";
+				+ LASTUPDATE + "\r\n" + "LASTVOLUME: " + LASTVOLUME + "\r\n" + "LASTVOLUMETO: " + LASTVOLUMETO + "\r\n"
+				+ "LASTTRADEID:  \"" + LASTTRADEID + "\"\r\n" + "VOLUME24HOUR: " + VOLUME24HOUR + "\r\n"
+				+ "VOLUME24HOURTO: " + VOLUME24HOURTO + "\r\n" + "OPEN24HOUR: " + OPEN24HOUR + "\r\n" + "HIGH24HOUR: "
+				+ HIGH24HOUR + "\r\n" + "LOW24HOUR: " + LOW24HOUR + "\r\n" + "LASTMARKET:  \"" + LASTMARKET + "\"\r\n"
+				+ "CHANGE24HOUR: " + CHANGE24HOUR + "\r\n" + "CHANGEPCT24HOUR: " + CHANGEPCT24HOUR + "\r\n"
+				+ "CHANGEDAY: " + CHANGEDAY + "\r\n" + "CHANGEPCTDAY: " + CHANGEPCTDAY + "\n";
 
 	}
 

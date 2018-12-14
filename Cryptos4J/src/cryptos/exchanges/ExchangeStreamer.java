@@ -10,21 +10,26 @@ import com.google.gson.Gson;
 import utils.HttpsConnector;
 
 /**
- * Class for streaming Exchange objects from the <i>min-api.cryptocompare.com/data/all/exchanges</i> end point.
+ * Class for streaming Exchange objects from the <a href=
+ * "https://min-api.cryptocompare.com/documentation?key=Other&cat=allExchangesEndpoint">
+ * All the Exchanges and Trading Pairs</a> end point.
  * 
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
  * @see Exchange
  */
-public class CryptoExchanges {
+public class ExchangeStreamer {
 
 	/**
-	 * streams Exchange objects by connecting to the <i>min-api.cryptocompare.com/data/all/exchanges</i> end point.
-	 * @param exchanges - array of exchanges to stream
+	 * streams Exchange objects by connecting to the <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Other&cat=allExchangesEndpoint">
+	 * All the Exchanges and Trading Pairs</a> end point.
+	 * 
+	 * @param exchanges array of exchanges to stream
 	 * @return stream of Exchange objects
 	 * @since Cryptos4J v1.0
 	 */
-	public static Stream<Exchange> streamExchanges(CryptoExchanges.exchanges... exchanges) {
+	public static Stream<Exchange> streamExchanges(ExchangeStreamer.exchanges... exchanges) {
 
 		String json = HttpsConnector
 				.connect("https://min-api.cryptocompare.com/data/all/exchanges?extraParams=Cryptos4J");
@@ -56,7 +61,10 @@ public class CryptoExchanges {
 	}
 
 	/**
-	 * streams all Exchange objects by connecting to the <i>min-api.cryptocompare.com/data/all/exchanges</i> end point.
+	 * streams all Exchange objects by connecting to the <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Other&cat=allExchangesEndpoint">
+	 * All the Exchanges and Trading Pairs</a> end point.
+	 * 
 	 * @return stream of all Exchange objects
 	 * @since Cryptos4J v1.0
 	 */
@@ -77,7 +85,7 @@ public class CryptoExchanges {
 			exchangeMatcher.find();
 
 			Exchange ex = new Exchange(
-					CryptoExchanges.exchanges.valueOf(exchangeMatcher.group().replaceAll("(\"|:)", "")));
+					ExchangeStreamer.exchanges.valueOf(exchangeMatcher.group().replaceAll("(\"|:)", "")));
 
 			while (coinFromMatcher.find() & arrayMatcher.find()) {
 
@@ -93,7 +101,9 @@ public class CryptoExchanges {
 
 	/**
 	 * enum for all of the supported Exchanges.<br>
-	 * That is, all the exchanges returned by the <i>min-api.cryptocompare.com/data/all/exchanges</i> end point.
+	 * That is, all the exchanges returned by the
+	 * <i>https://min-api.cryptocompare.com/data/all/exchanges</i> end point.
+	 * 
 	 * @author Matt - github.com/mcfadd
 	 * @since Cryptos4J v1.0
 	 */

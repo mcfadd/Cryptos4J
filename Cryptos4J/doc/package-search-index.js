@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"cryptos"},{"l":"cryptos.currencies"},{"l":"cryptos.exchanges"},{"l":"cryptos.historical"},{"l":"exceptions"},{"l":"utils"}]

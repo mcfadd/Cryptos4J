@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
-import cryptos.exchanges.CryptoExchanges;
+import cryptos.exchanges.ExchangeStreamer;
 import exceptions.InvalidArgumentException;
 import utils.HttpsConnector;
 import utils.Util;
@@ -16,7 +16,7 @@ import utils.Util;
 /**
  * Wrapper class for RawData.
  * 
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
  * @see RawData
  */
@@ -25,7 +25,7 @@ public final class CryptoData implements CryptoBaseExchange {
 	// mutable fields
 	private String currencyFrom;
 	private String currencyTo;
-	private CryptoExchanges.exchanges exchange;
+	private ExchangeStreamer.exchanges exchange;
 
 	// immutable fields
 	private RawData rawData;
@@ -33,28 +33,29 @@ public final class CryptoData implements CryptoBaseExchange {
 
 	/**
 	 * gets a new instance of CryptoData with the following parameters
-	 * @param currencyTo   - currency symbol to convert to
-	 * @param currencyFrom - currency symbol to convert from
-	 * @param exchange     - exchange to get data from
+	 * 
+	 * @param currencyTo   currency symbol to convert to
+	 * @param currencyFrom currency symbol to convert from
+	 * @param exchange     exchange to get data from
 	 * @return new instance of CryptoData
 	 */
-	public static CryptoData getInstance(String currencyTo, String currencyFrom, CryptoExchanges.exchanges exchange) {
+	public static CryptoData getInstance(String currencyTo, String currencyFrom, ExchangeStreamer.exchanges exchange) {
 		return new CryptoData(currencyTo, currencyFrom, exchange);
 	}
 
-	private CryptoData(String currencyTo, String currencyFrom, CryptoExchanges.exchanges exchange) {
+	private CryptoData(String currencyTo, String currencyFrom, ExchangeStreamer.exchanges exchange) {
 		this.currencyFrom = currencyFrom;
 		this.currencyTo = currencyTo;
 		this.exchange = exchange;
 	}
 
 	@Override
-	public CryptoExchanges.exchanges getExchange() {
+	public ExchangeStreamer.exchanges getExchange() {
 		return this.exchange;
 	}
 
 	@Override
-	public void setExchange(CryptoExchanges.exchanges exchange) {
+	public void setExchange(ExchangeStreamer.exchanges exchange) {
 		this.exchange = exchange;
 	}
 
@@ -79,8 +80,9 @@ public final class CryptoData implements CryptoBaseExchange {
 	}
 
 	/**
-	 * gets the <i>min-api.cryptocompare.com/data/generateAvg</i> end point url with parameters 
-	 * currencyTo, currencyFrom, exchange, and apiKey (if any)
+	 * gets the <i>min-api.cryptocompare.com/data/generateAvg</i> end point url with
+	 * parameters currencyTo, currencyFrom, exchange, and apiKey (if any)
+	 * 
 	 * @return URL end point this object connects to
 	 */
 	@Override
@@ -89,8 +91,11 @@ public final class CryptoData implements CryptoBaseExchange {
 	}
 
 	/**
-	 * returns RawData object equivalent to the 'RAW' json object returned by
-	 * the <i>min-api.cryptocompare.com/data/generateAvg</i> end point.
+	 * returns RawData object equivalent to the 'RAW' json object returned by the
+	 * <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Price&cat=generateAverageEndpoint">
+	 * Generate Custom Average</a> end point.
+	 * 
 	 * @return rawData
 	 */
 	public RawData getRawData() {
@@ -98,8 +103,9 @@ public final class CryptoData implements CryptoBaseExchange {
 	}
 
 	/**
-	 * updates url with parameters,
-	 * then connects and updates this objects RawData aggregate with the returned json.
+	 * updates url with parameters, then connects and updates this objects RawData
+	 * aggregate with the returned json.
+	 * 
 	 * @see CryptoData#getRawData()
 	 * @see CryptoData#getURL()
 	 */
@@ -111,8 +117,8 @@ public final class CryptoData implements CryptoBaseExchange {
 
 			url = new URL("https://min-api.cryptocompare.com/data/generateAvg?fsym=" + currencyFrom + "&tsym="
 					+ currencyTo + "&e=" + exchange + "&extraParams=Cryptos4J");
-			
-			if(Util.getApiKey() != null)
+
+			if (Util.getApiKey() != null)
 				url = new URL(url + "&api_key=" + Util.getApiKey());
 
 			Gson gson = new Gson();

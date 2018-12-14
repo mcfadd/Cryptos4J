@@ -1,9 +1,12 @@
 package cryptos;
 
 /**
- * Object equivalent to the 'ConversionInfo' json object returned by the <i>min-api.cryptocompare.com/data/coin/generalinfo</i> end point.
+ * Object equivalent to the 'ConversionInfo' json object returned by the
+ * <a href=
+ * "https://min-api.cryptocompare.com/documentation?key=Streaming&cat=coinsGeneralInfoEndpoint">Coins
+ * General Info</a> end point.
  * 
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
  * @see CryptoInfo
  */
@@ -33,7 +36,7 @@ public class ConversionInfo {
 		SubBase = subBase;
 		SubsNeeded = subsNeeded;
 		RAW = raw;
-		
+
 	}
 
 	public String getConversion() {
@@ -77,20 +80,23 @@ public class ConversionInfo {
 	}
 
 	/**
-	 * returns a string representation of the 'ConversionInfo' object retrieved from the <i>min-api.cryptocompare.com/data/coin/generalinfo</i> end point.
+	 * returns a string representation of the 'ConversionInfo' object retrieved from
+	 * the <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Streaming&cat=coinsGeneralInfoEndpoint">Coins
+	 * General Info</a> end point.
+	 * 
 	 * @return dataToString
 	 * @since Cryptos4J v1.0
 	 * @see CryptoInfo#dataToString()
 	 */
 	public String dataToString() {
-		
+
 		return "Conversion:  \"" + Conversion + "\"\r\n" + "ConversionSymbol:  \"" + ConversionSymbol + "\"\r\n"
 				+ "CurrencyFrom:  \"" + CurrencyFrom + "\"\r\n" + "CurrencyTo: " + CurrencyTo + "\r\n" + "Market: "
 				+ Market + "\r\n" + "Supply: " + Supply + "\r\n" + "TotalVolume24H: " + TotalVolume24H + "\r\n"
-				+ "SubBase:  \"" + SubBase + "\"\r\n" + "SubsNeeded: "
-				+ ((SubsNeeded.length == 0) ? "" : SubsNeeded[0]) + "\r\n" + "RAW: "
-				+ ((RAW.length == 0) ? "" : RAW[0]) + "\n";
-		
+				+ "SubBase:  \"" + SubBase + "\"\r\n" + "SubsNeeded: " + ((SubsNeeded.length == 0) ? "" : SubsNeeded[0])
+				+ "\r\n" + "RAW: " + ((RAW.length == 0) ? "" : RAW[0]) + "\n";
+
 	}
-	
+
 }

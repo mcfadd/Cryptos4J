@@ -3,7 +3,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
-import cryptos.exchanges.CryptoExchanges;
+import cryptos.exchanges.ExchangeStreamer;
 import cryptos.historical.HistoricalData;
 import cryptos.historical.TimestampedData;
 import cryptos.historical.HistoricalMinute;
@@ -11,6 +11,18 @@ import exceptions.InvalidArgumentException;
 
 public class HistoricalDataStreamExample {
 
+	/**
+	 * This Example demonstrates how to use the Historical Daily OHLCV end point to stream TimestampedData.
+	 * The same approach is used for Historical Hourly OHLCV and Historical Minute OHLCV
+	 * Take a look at Cryptocompare's Documentation for more info:
+	 * 
+	 * https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistoday
+	 * 
+	 * parameters:
+	 * 	fsym 	= BTC
+	 * 	tsym 	= USDT
+	 * 	e 		= Binance
+	 */
 	public static void main(String[] args) {
 
 		try {
@@ -18,7 +30,7 @@ public class HistoricalDataStreamExample {
 			System.out.println("Sorted TimestampedData by high of day:");
 			
 			HistoricalMinute histoMinute = HistoricalData.generateHistoMinute("USDT", "BTC",
-					CryptoExchanges.exchanges.Binance);
+					ExchangeStreamer.exchanges.Binance);
 			histoMinute.update();
 			
 			Stream<TimestampedData> steam = histoMinute.getDataStream();
@@ -42,7 +54,7 @@ public class HistoricalDataStreamExample {
 			}
 
 		} catch (InvalidArgumentException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 
 	}

@@ -1,11 +1,13 @@
 package cryptos.currencies;
 
 /**
- * Object equivalent to the json Coin object returned by the <i>min-api.cryptocompare.com/data/all/coinlist</i> end point.
+ * Object equivalent to the json Coin object returned by the <a href=
+ * "https://min-api.cryptocompare.com/documentation?key=Other&cat=allCoinsWithContentEndpoint">
+ * All the Coins</a> end point.
  * 
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
- * @see Currencies
+ * @see CryptocurrencyStreamer
  */
 public class Cryptocurrency {
 
@@ -120,7 +122,11 @@ public class Cryptocurrency {
 	}
 
 	/**
-	 * returns a string representation of the json Coin data retrieved from the <i>min-api.cryptocompare.com/data/all/coinlist</i> end point.
+	 * returns a string representation of the json Coin data retrieved from the
+	 * <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Other&cat=allCoinsWithContentEndpoint">
+	 * All the Coins</a> end point.
+	 * 
 	 * @return dataToString
 	 * @since Cryptos4J v1.0
 	 */
@@ -133,7 +139,7 @@ public class Cryptocurrency {
 				+ "\r\n" + "SmartContractAddress: " + SmartContractAddress + "\r\n" + "PreMinedValue: " + PreMinedValue
 				+ "\r\n" + "TotalCoinsFreeFloat: " + TotalCoinsFreeFloat + "\r\n" + "SortOrder: " + SortOrder + "\r\n"
 				+ "Sponsored: " + Sponsored + "\r\n" + "IsTrading: " + IsTrading + "\r\n" + "\n";
-		
+
 	}
 
 }

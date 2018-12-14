@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import org.junit.jupiter.api.Test;
 
-import cryptos.exchanges.CryptoExchanges;
+import cryptos.exchanges.ExchangeStreamer;
 import cryptos.historical.HistoricalData;
 import cryptos.historical.HistoricalMinute;
 import cryptos.historical.TimestampedData;
@@ -27,7 +27,7 @@ public class TestHistoricalMinute {
 		TimeZone gmtTimeZone = TimeZone.getTimeZone("GMT");
 		Calendar inputCalendar = Calendar.getInstance(gmtTimeZone);
 		HistoricalMinute histoMinute = HistoricalData.generateHistoMinute("USDT", "BTC",
-				CryptoExchanges.exchanges.Binance);
+				ExchangeStreamer.exchanges.Binance);
 		int dayMax = 5;
 		int hourMax = 22;
 		int minuteMax = 59;
@@ -104,7 +104,7 @@ public class TestHistoricalMinute {
 		TimeZone gmtTimeZone = TimeZone.getTimeZone("GMT");
 		Calendar inputCalendar = Calendar.getInstance(gmtTimeZone);
 		HistoricalMinute histoMinute = HistoricalData.generateHistoMinute("USDT", "BTC",
-				CryptoExchanges.exchanges.Binance);
+				ExchangeStreamer.exchanges.Binance);
 		int dayMax = 5;
 		int hourMax = 22;
 		int minuteMax = 59;
@@ -171,7 +171,7 @@ public class TestHistoricalMinute {
 		TimeZone gmtTimeZone = TimeZone.getTimeZone("GMT");
 		Calendar inputCalendar = Calendar.getInstance(gmtTimeZone);
 		HistoricalMinute histoMinute = HistoricalData.generateHistoMinute("USDT", "BTC",
-				CryptoExchanges.exchanges.Binance);
+				ExchangeStreamer.exchanges.Binance);
 		int dayMax = 5;
 		int hourMax = 22;
 		int minuteMax = 59;
@@ -250,7 +250,7 @@ public class TestHistoricalMinute {
 		TimeZone gmtTimeZone = TimeZone.getTimeZone("GMT");
 		Calendar inputCalendar = Calendar.getInstance(gmtTimeZone);
 		HistoricalMinute histoMinute = HistoricalData.generateHistoMinute("USDT", "BTC",
-				CryptoExchanges.exchanges.Binance);
+				ExchangeStreamer.exchanges.Binance);
 		int dayMax = 5;
 		int hourMax = 22;
 		int minuteMax = 59;

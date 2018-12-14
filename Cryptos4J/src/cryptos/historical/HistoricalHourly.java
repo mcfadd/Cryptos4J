@@ -3,20 +3,23 @@ package cryptos.historical;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import cryptos.exchanges.CryptoExchanges;
+import cryptos.exchanges.ExchangeStreamer;
 import exceptions.TimestampOutOfBoundsException;
 import utils.Util;
 
 /**
- * Historical data class that is equivalent to the json object returned by the <i>min-api.cryptocompare.com/data/histohour</i> end point.
+ * Historical data class that is equivalent to the json object returned by the
+ * <a href=
+ * "https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistohour">
+ * Historical Hourly OHLCV</a> end point.
  * 
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
  * @see TimestampedData
  */
 public class HistoricalHourly extends HistoricalData {
 
-	protected HistoricalHourly(String currencyTo, String currencyFrom, CryptoExchanges.exchanges exchange) {
+	protected HistoricalHourly(String currencyTo, String currencyFrom, ExchangeStreamer.exchanges exchange) {
 		super(currencyTo, currencyFrom, exchange);
 	}
 

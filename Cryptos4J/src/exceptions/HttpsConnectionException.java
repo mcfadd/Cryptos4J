@@ -1,7 +1,7 @@
 package exceptions;
 
 /**
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
  */
 public class HttpsConnectionException extends Error {
@@ -11,5 +11,5 @@ public class HttpsConnectionException extends Error {
 	public HttpsConnectionException(String response) {
 		super("Failed to connect with error: " + response);
 	}
-	
+
 }

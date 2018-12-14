@@ -8,7 +8,7 @@ import java.util.TimeZone;
 import java.util.concurrent.ThreadLocalRandom;
 import org.junit.jupiter.api.Test;
 
-import cryptos.exchanges.CryptoExchanges;
+import cryptos.exchanges.ExchangeStreamer;
 import cryptos.historical.HistoricalData;
 import cryptos.historical.HistoricalHourly;
 import cryptos.historical.TimestampedData;
@@ -25,7 +25,7 @@ public class TestHistoricalHour {
 
 		TimeZone gmtTimeZone = TimeZone.getTimeZone("GMT");
 		Calendar inputCalendar = Calendar.getInstance(gmtTimeZone);
-		HistoricalHourly histoHour = HistoricalData.generateHistoHourly("USDT", "BTC", CryptoExchanges.exchanges.Binance);
+		HistoricalHourly histoHour = HistoricalData.generateHistoHourly("USDT", "BTC", ExchangeStreamer.exchanges.Binance);
 		int yearMin = 2018;
 		int yearMax = inputCalendar.get(Calendar.YEAR);
 		int monthMax = 11;
@@ -100,7 +100,7 @@ public class TestHistoricalHour {
 
 		TimeZone gmtTimeZone = TimeZone.getTimeZone("GMT");
 		Calendar inputCalendar = Calendar.getInstance(gmtTimeZone);
-		HistoricalHourly histoHour = HistoricalData.generateHistoHourly("USDT", "BTC", CryptoExchanges.exchanges.Binance);
+		HistoricalHourly histoHour = HistoricalData.generateHistoHourly("USDT", "BTC", ExchangeStreamer.exchanges.Binance);
 		int yearMin = 2018;
 		int yearMax = inputCalendar.get(Calendar.YEAR);
 		int monthMax = 11;
@@ -169,7 +169,7 @@ public class TestHistoricalHour {
 
 		TimeZone gmtTimeZone = TimeZone.getTimeZone("GMT");
 		Calendar inputCalendar = Calendar.getInstance(gmtTimeZone);
-		HistoricalHourly histoHour = HistoricalData.generateHistoHourly("USDT", "BTC", CryptoExchanges.exchanges.Binance);
+		HistoricalHourly histoHour = HistoricalData.generateHistoHourly("USDT", "BTC", ExchangeStreamer.exchanges.Binance);
 		int yearMin = 2018;
 		int yearMax = inputCalendar.get(Calendar.YEAR);
 		int monthMax = 11;
@@ -253,7 +253,7 @@ public class TestHistoricalHour {
 
 		TimeZone gmtTimeZone = TimeZone.getTimeZone("GMT");
 		Calendar inputCalendar = Calendar.getInstance(gmtTimeZone);
-		HistoricalHourly histoHour = HistoricalData.generateHistoHourly("USDT", "BTC", CryptoExchanges.exchanges.Binance);
+		HistoricalHourly histoHour = HistoricalData.generateHistoHourly("USDT", "BTC", ExchangeStreamer.exchanges.Binance);
 		int yearMin = 2018;
 		int yearMax = inputCalendar.get(Calendar.YEAR);
 		int monthMax = 11;

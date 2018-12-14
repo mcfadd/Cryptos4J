@@ -10,7 +10,7 @@ import java.util.Scanner;
 /**
  * Utility class for retrieving json data.
  * 
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
  */
 public class HttpsConnector {
@@ -19,7 +19,8 @@ public class HttpsConnector {
 
 	/**
 	 * gets json data from the url specified
-	 * @param url - url to get json data from
+	 * 
+	 * @param url url to get json data from
 	 * @return json
 	 * @throws HttpsConnectionException
 	 */
@@ -57,7 +58,8 @@ public class HttpsConnector {
 
 	/**
 	 * sets the user agent to use for this HttpConnector
-	 * @param user_agent - user agent to use
+	 * 
+	 * @param user_agent user agent to use
 	 */
 	public static void setUserAgent(String user_agent) {
 		userAgent = user_agent;

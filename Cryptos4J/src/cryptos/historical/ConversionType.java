@@ -1,9 +1,12 @@
 package cryptos.historical;
 
 /**
- * Object equivalent to the 'ConversionType' json object returned by the <i>min-api.cryptocompare.com/data/histo</i> end point.
+ * Object equivalent to the 'ConversionType' json object returned by the
+ * <a href=
+ * "https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistoday">
+ * Historical OHLCV</a> end point.
  * 
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
  * @see HistoricalData
  */
@@ -26,7 +29,11 @@ public class ConversionType {
 	}
 
 	/**
-	 * returns a string representation of the 'ConversionType' json object retrieved from the <i>min-api.cryptocompare.com/data/histo</i> end point.
+	 * returns a string representation of the 'ConversionType' json object retrieved
+	 * from the <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistoday">
+	 * Historical OHLCV</a> end point.
+	 * 
 	 * @return dataToString
 	 * @since Cryptos4J v1.0
 	 * @see HistoricalData#dataToString()

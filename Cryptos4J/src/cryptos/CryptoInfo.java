@@ -17,7 +17,7 @@ import utils.Util;
 /**
  * Wrapper class for GeneralInfo and ConversionInfo.
  * 
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
  * @see GeneralInfo
  * @see ConversionInfo
@@ -34,10 +34,13 @@ public final class CryptoInfo implements CryptoBase {
 	private URL url;
 
 	/**
-	 * streams CryptoInfo objects by connecting to the <i>min-api.cryptocompare.com/data/coin/generalinfo</i> end point.<br>
+	 * streams CryptoInfo objects by connecting to the <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Streaming&cat=coinsGeneralInfoEndpoint">Coins
+	 * General Info</a> end point.<br>
 	 * The number of objects streamed is equal to the length of currenciesFrom.
-	 * @param currencyTo - currency to convert to
-	 * @param currenciesFrom - array of currencies to convert from
+	 * 
+	 * @param currencyTo     currency to convert to
+	 * @param currenciesFrom array of currencies to convert from
 	 * @return a stream of CryptoInfo
 	 * @throws InvalidArgumentException
 	 * @since Cryptos4J v1.0
@@ -62,7 +65,8 @@ public final class CryptoInfo implements CryptoBase {
 			}
 
 			String json = HttpsConnector.connect("https://min-api.cryptocompare.com/data/coin/generalinfo?fsyms="
-					+ sb.toString() + "&tsym=" + currencyTo + "&extraParams=Cryptos4J" + ((Util.getApiKey() != null)?"&api_key=" + Util.getApiKey(): ""));
+					+ sb.toString() + "&tsym=" + currencyTo + "&extraParams=Cryptos4J"
+					+ ((Util.getApiKey() != null) ? "&api_key=" + Util.getApiKey() : ""));
 
 			Matcher gneralInfoMatcher = Pattern.compile("CoinInfo\":(.*?),\"ConversionInfo\"").matcher(json);
 			Matcher conversionInfoMatcher = Pattern.compile("\"ConversionInfo\":(.*?)\\}\\}").matcher(json);
@@ -96,8 +100,9 @@ public final class CryptoInfo implements CryptoBase {
 
 	/**
 	 * gets a new instance of CryptoInfo with the following parameters
-	 * @param currencyTo - currency symbol to convert to
-	 * @param currencyFrom - currency symbol to convert from
+	 * 
+	 * @param currencyTo   currency symbol to convert to
+	 * @param currencyFrom currency symbol to convert from
 	 * @return new instance of CryptoInfo
 	 * @since Cryptos4J v1.0
 	 */
@@ -134,10 +139,11 @@ public final class CryptoInfo implements CryptoBase {
 	public void setCurrencyTo(String currencyTo) {
 		this.currencyTo = currencyTo;
 	}
-	
+
 	/**
-	 * gets the <i>min-api.cryptocompare.com/data/generalinfo</i> end point url with parameters 
-	 * currencyTo, currencyFrom, and apiKey (if any)
+	 * gets the <i>min-api.cryptocompare.com/data/generalinfo</i> end point url with
+	 * parameters currencyTo, currencyFrom, and apiKey (if any)
+	 * 
 	 * @return URL end point this object connects to
 	 */
 	@Override
@@ -146,8 +152,11 @@ public final class CryptoInfo implements CryptoBase {
 	}
 
 	/**
-	 * returns GeneralInfo object equivalent to the 'GeneralInfo' json object returned by
-	 * the <i>min-api.cryptocompare.com/data/coin/generalinfo</i>. end point.
+	 * returns GeneralInfo object equivalent to the 'GeneralInfo' json object
+	 * returned by the <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Streaming&cat=coinsGeneralInfoEndpoint">Coins
+	 * General Info</a>. end point.
+	 * 
 	 * @return generalInfo
 	 */
 	public GeneralInfo getGeneralInfo() {
@@ -155,8 +164,11 @@ public final class CryptoInfo implements CryptoBase {
 	}
 
 	/**
-	 * returns ConversionInfo object equivalent to the 'ConversionInfo' json object returned by
-	 * the <i>min-api.cryptocompare.com/data/coin/generalinfo</i> end point.
+	 * returns ConversionInfo object equivalent to the 'ConversionInfo' json object
+	 * returned by the <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Streaming&cat=coinsGeneralInfoEndpoint">Coins
+	 * General Info</a> end point.
+	 * 
 	 * @return conversionInfo
 	 */
 	public ConversionInfo getConversionInfo() {
@@ -164,8 +176,9 @@ public final class CryptoInfo implements CryptoBase {
 	}
 
 	/**
-	 * updates url with parameters,
-	 * then connects and updates this objects GeneralInfo and ConversionInfo aggregates with the returned json.
+	 * updates url with parameters, then connects and updates this objects
+	 * GeneralInfo and ConversionInfo aggregates with the returned json.
+	 * 
 	 * @see CryptoInfo#getConversionInfo()
 	 * @see CryptoInfo#getGeneralInfo()
 	 * @see CryptoInfo#getURL()
@@ -179,9 +192,9 @@ public final class CryptoInfo implements CryptoBase {
 			url = new URL("https://min-api.cryptocompare.com/data/coin/generalinfo?fsyms=" + currencyFrom + "&tsym="
 					+ currencyTo + "&extraParams=Cryptos4J");
 
-			if(Util.getApiKey() != null)
+			if (Util.getApiKey() != null)
 				url = new URL(url + "&api_key=" + Util.getApiKey());
-			
+
 			Gson gson = new Gson();
 			json = HttpsConnector.connect(url.toString());
 

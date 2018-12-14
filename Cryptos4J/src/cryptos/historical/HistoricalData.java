@@ -10,15 +10,16 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import cryptos.CryptoBaseExchange;
-import cryptos.exchanges.CryptoExchanges;
+import cryptos.exchanges.ExchangeStreamer;
 import exceptions.InvalidArgumentException;
 import exceptions.TimestampOutOfBoundsException;
 import utils.HttpsConnector;
 
 /**
- * Historical data super/factory class for HistoricalDaily, HistoricalHourly, and HistoricalMinute.
+ * Historical data super/factory class for HistoricalDaily, HistoricalHourly,
+ * and HistoricalMinute.
  * 
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
  * @see TimestampedData
  */
@@ -27,12 +28,12 @@ public abstract class HistoricalData implements CryptoBaseExchange, HistoricalBa
 	// mulatble fields
 	private String currencyFrom;
 	private String currencyTo;
-	private CryptoExchanges.exchanges exchange;
+	private ExchangeStreamer.exchanges exchange;
 	private long lastUnixTimestamp;
 	private int limit;
 	private int aggregate;
 	private URL url;
-	
+
 	// immutable fields
 	private String Response;
 	private float Type;
@@ -45,41 +46,47 @@ public abstract class HistoricalData implements CryptoBaseExchange, HistoricalBa
 
 	/**
 	 * gets a new instance of HistoricalDaily with the following parameters
-	 * @param currencyTo - currency symbol to convert to
-	 * @param currencyFrom - currency symbol to convert from
-	 * @param exchange - exchange to get data from
+	 * 
+	 * @param currencyTo   currency symbol to convert to
+	 * @param currencyFrom currency symbol to convert from
+	 * @param exchange     exchange to get data from
 	 * @return new instance of HistoricalDaily
 	 * @since Cryptos4J v1.0
 	 */
-	public static HistoricalDaily generateHistoDaily(String currencyTo, String currencyFrom, CryptoExchanges.exchanges exchange) {
+	public static HistoricalDaily generateHistoDaily(String currencyTo, String currencyFrom,
+			ExchangeStreamer.exchanges exchange) {
 		return new HistoricalDaily(currencyTo, currencyFrom, exchange);
 	}
-	
+
 	/**
 	 * gets a new instance of HistoricalHourly with the following parameters
-	 * @param currencyTo - currency symbol to convert to
-	 * @param currencyFrom - currency symbol to convert from
-	 * @param exchange - exchange to get data from
+	 * 
+	 * @param currencyTo   currency symbol to convert to
+	 * @param currencyFrom currency symbol to convert from
+	 * @param exchange     exchange to get data from
 	 * @return new instance of HistoricalHourly
 	 * @since Cryptos4J v1.0
 	 */
-	public static HistoricalHourly generateHistoHourly(String currencyTo, String currencyFrom, CryptoExchanges.exchanges exchange) {
+	public static HistoricalHourly generateHistoHourly(String currencyTo, String currencyFrom,
+			ExchangeStreamer.exchanges exchange) {
 		return new HistoricalHourly(currencyTo, currencyFrom, exchange);
 	}
-	
+
 	/**
 	 * gets a new instance of HistoricalMinute with the following parameters
-	 * @param currencyTo - currency symbol to convert to
-	 * @param currencyFrom - currency symbol to convert from
-	 * @param exchange - exchange to get data from
+	 * 
+	 * @param currencyTo   currency symbol to convert to
+	 * @param currencyFrom currency symbol to convert from
+	 * @param exchange     exchange to get data from
 	 * @return new instance of HistoricalMinute
 	 * @since Cryptos4J v1.0
 	 */
-	public static HistoricalMinute generateHistoMinute(String currencyTo, String currencyFrom, CryptoExchanges.exchanges exchange) {
+	public static HistoricalMinute generateHistoMinute(String currencyTo, String currencyFrom,
+			ExchangeStreamer.exchanges exchange) {
 		return new HistoricalMinute(currencyTo, currencyFrom, exchange);
 	}
-	
-	protected HistoricalData(String currencyTo, String currencyFrom, CryptoExchanges.exchanges exchange) {
+
+	protected HistoricalData(String currencyTo, String currencyFrom, ExchangeStreamer.exchanges exchange) {
 
 		this.aggregate = 1;
 		this.lastUnixTimestamp = System.currentTimeMillis() / 1000;
@@ -87,9 +94,9 @@ public abstract class HistoricalData implements CryptoBaseExchange, HistoricalBa
 		this.currencyFrom = currencyFrom;
 		this.currencyTo = currencyTo;
 		this.exchange = exchange;
-		
+
 	}
-	
+
 	protected HistoricalData(String Response, float Type, boolean Aggregated, TimestampedData[] Data, long TimeTo,
 			long TimeFrom, boolean FirstValueInArray, ConversionType ConversionTypeObject) {
 
@@ -101,46 +108,46 @@ public abstract class HistoricalData implements CryptoBaseExchange, HistoricalBa
 		this.TimeFrom = TimeFrom;
 		this.FirstValueInArray = FirstValueInArray;
 		this.ConversionType = ConversionTypeObject;
-		
+
 	}
 
 	@Override
 	public long getLastUnixTimestamp() {
 		return this.lastUnixTimestamp;
 	}
-	
+
 	@Override
 	public void setLastUnixTimestamp(long time) {
 		this.lastUnixTimestamp = time;
 	}
-	
+
 	@Override
 	public int getAggregate() {
 		return aggregate;
 	}
-	
+
 	@Override
-	public void setAggregate(int aggregate) {		
+	public void setAggregate(int aggregate) {
 		this.aggregate = aggregate;
 	}
-	
+
 	@Override
 	public int getLimit() {
 		return limit;
 	}
-	
+
 	@Override
-	public void setLimit(int limit) {		
+	public void setLimit(int limit) {
 		this.limit = limit;
 	}
-	
+
 	@Override
-	public CryptoExchanges.exchanges getExchange() {
+	public ExchangeStreamer.exchanges getExchange() {
 		return this.exchange;
 	}
-	
+
 	@Override
-	public void setExchange(CryptoExchanges.exchanges exchange) {
+	public void setExchange(ExchangeStreamer.exchanges exchange) {
 		this.exchange = exchange;
 	}
 
@@ -163,17 +170,19 @@ public abstract class HistoricalData implements CryptoBaseExchange, HistoricalBa
 	public void setCurrencyTo(String currencyTo) {
 		this.currencyTo = currencyTo;
 	}
-	
+
 	/**
-	 * gets the <i>min-api.cryptocompare.com/data/histo</i> end point url with parameters 
-	 * currencyTo, currencyFrom, exchange, lastUnixTimestamp, limit, aggregate, and apiKey (if any)
+	 * gets the <i>https://min-api.cryptocompare.com/data/histo</i> end point url with
+	 * parameters currencyTo, currencyFrom, exchange, lastUnixTimestamp, limit,
+	 * aggregate, and apiKey (if any)
+	 * 
 	 * @return URL end point this object connects to
 	 */
 	@Override
 	public URL getURL() {
 		return url;
 	}
-	
+
 	protected void setURL(URL url) {
 		this.url = url;
 	}
@@ -197,12 +206,12 @@ public abstract class HistoricalData implements CryptoBaseExchange, HistoricalBa
 	public long getTimeTo() {
 		return TimeTo;
 	}
-	
+
 	@Override
 	public long getTimeFrom() {
 		return TimeFrom;
 	}
-	
+
 	@Override
 	public boolean isFirstValueInArray() {
 		return FirstValueInArray;
@@ -212,7 +221,7 @@ public abstract class HistoricalData implements CryptoBaseExchange, HistoricalBa
 	public ConversionType getConversionType() {
 		return ConversionType;
 	}
-	
+
 	protected TimestampedData[] getDataArray() {
 		return Data;
 	}
@@ -221,15 +230,16 @@ public abstract class HistoricalData implements CryptoBaseExchange, HistoricalBa
 	public Stream<TimestampedData> getDataStream() {
 		return Arrays.stream(Data);
 	}
-	
+
 	@Override
 	public abstract TimestampedData getDataAtTime(long timestamp) throws TimestampOutOfBoundsException;
-	
+
 	protected abstract void updateURL();
 
 	/**
-	 * updates url with parameters,
-	 * then connects and updates this objects fields with the returned json.
+	 * updates url with parameters, then connects and updates this objects fields
+	 * with the returned json.
+	 * 
 	 * @since Cryptos4J v1.0
 	 */
 	@Override
@@ -242,8 +252,7 @@ public abstract class HistoricalData implements CryptoBaseExchange, HistoricalBa
 
 			Gson gson = new Gson();
 			json = HttpsConnector.connect(url.toString());
-			HistoricalData tmp = gson.fromJson(json,
-					HistoricalDaily.class);
+			HistoricalData tmp = gson.fromJson(json, HistoricalDaily.class);
 
 			this.Response = tmp.Response;
 			this.Type = tmp.Type;
@@ -253,7 +262,7 @@ public abstract class HistoricalData implements CryptoBaseExchange, HistoricalBa
 			this.TimeFrom = tmp.TimeFrom;
 			this.FirstValueInArray = tmp.FirstValueInArray;
 			this.ConversionType = tmp.ConversionType;
-			
+
 		} catch (JsonSyntaxException e) {
 			Matcher m = Pattern.compile("\"Message\":\"(.*?)\"").matcher(json);
 			m.find();
@@ -263,7 +272,11 @@ public abstract class HistoricalData implements CryptoBaseExchange, HistoricalBa
 	}
 
 	/**
-	 * returns a string representation of the historical data retrieved from the <i>min-api.cryptocompare.com/data/histo</i> end point.
+	 * returns a string representation of the historical data retrieved from the
+	 * <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistoday">
+	 * Historical OHLCV</a> end point.
+	 * 
 	 * @return dataToString
 	 * @since Cryptos4J v1.0
 	 * @see TimestampedData#datatoString()

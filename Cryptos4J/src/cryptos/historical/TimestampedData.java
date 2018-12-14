@@ -1,9 +1,11 @@
 package cryptos.historical;
 
 /**
- * Object equivalent to the json array elements returned by the <i>min-api.cryptocompare.com/data/histo</i> end point.
+ * Object equivalent to the json array elements returned by the <a href=
+ * "https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistoday">
+ * Historical OHLCV</a> end point.
  * 
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
  * @see HistoricalData
  */
@@ -59,7 +61,11 @@ public class TimestampedData {
 	}
 
 	/**
-	 * returns a string representation of the timestamped data retrieved from the min-api.cryptocompare.com/data/histo end point.
+	 * returns a string representation of the timestamped data retrieved from the
+	 * <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistoday">
+	 * Historical OHLCV</a> end point.
+	 * 
 	 * @return dataToString
 	 * @since Cryptos4J v1.0
 	 * @see HistoricalData#dataToString()

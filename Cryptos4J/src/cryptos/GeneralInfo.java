@@ -1,9 +1,11 @@
 package cryptos;
 
 /**
- * Object equivalent to the 'GeneralInfo' json object returned by the <i>min-api.cryptocompare.com/data/coin/generalinfo</i> end point.
+ * Object equivalent to the 'GeneralInfo' json object returned by the <a href=
+ * "https://min-api.cryptocompare.com/documentation?key=Streaming&cat=coinsGeneralInfoEndpoint">Coins
+ * General Info</a> end point.
  * 
- * @author Matt - github.com/mcfadd
+ * @author Matt - <a href="https://github.com/mcfadd">mcfadd</a>
  * @since Cryptos4J v1.0
  * @see CryptoInfo
  */
@@ -101,7 +103,11 @@ public class GeneralInfo {
 	}
 
 	/**
-	 * returns a string representation of the 'GeneralInfo' data retrieved from the <i>min-api.cryptocompare.com/data/coin/generalinfo</i> end point.
+	 * returns a string representation of the 'GeneralInfo' data retrieved from the
+	 * <a href=
+	 * "https://min-api.cryptocompare.com/documentation?key=Streaming&cat=coinsGeneralInfoEndpoint">Coins
+	 * General Info</a> end point.
+	 * 
 	 * @return dataToString
 	 * @since Cryptos4J v1.0
 	 * @see CryptoInfo#dataToString()
