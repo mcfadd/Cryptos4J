@@ -7,14 +7,14 @@ import cryptos.exchanges.Exchange;
 public class StreamExchangeExample {
 
 	/**
-	 * This Example demonstrates how to use the All the Exchanges and Trading Pairs end point
-	 * to extract a specific exchange.
-	 * Take a look at Cryptocompare's Documentation for more info:
+	 * This Example demonstrates how to use the All the Exchanges and Trading Pairs
+	 * end point to extract a specific exchange. Take a look at Cryptocompare's
+	 * Documentation for more info:
 	 * 
 	 * https://min-api.cryptocompare.com/documentation?key=Other&cat=allExchangesEndpoint
 	 * 
-	 * parameters:
-	 * 		exchange 	= Binance
+	 * parameters: 
+	 *   exchange = Binance
 	 */
 	public static void main(String[] args) {
 
@@ -37,7 +37,7 @@ public class StreamExchangeExample {
 				System.out.println("]");
 			}
 		}
-		
+
 		// stream all exchanges (warning very long output stream)
 
 //		Iterator<Exchange> it3 = ExchangeStreamer.streamExchanges(ExchangeStreamer.exchanges.Binance).iterator();

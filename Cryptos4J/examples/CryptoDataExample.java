@@ -10,10 +10,10 @@ public class CryptoDataExample {
 	 * 
 	 * https://min-api.cryptocompare.com/documentation?key=Price&cat=generateAverageEndpoint
 	 * 
-	 * parameters:
-	 * 	fsym 	= BTC
-	 * 	tsym 	= USDT
-	 * 	e 		= Binance
+	 * parameters: 
+	 *   fsym = BTC 
+	 *   tsym = USDT
+	 *   e = Binance
 	 */
 	public static void main(String[] args) {
 
