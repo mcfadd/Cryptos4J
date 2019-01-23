@@ -6,8 +6,8 @@ public class CryptoPricesExample {
 
 	/**
 	 * This Example demonstrates how to use the Single Symbol Price end point and
-	 * the Multiple Symbols Price end point. Take a look at Cryptocompare's
-	 * Documentation for more info:
+	 * the Multiple Symbols Price end point. 
+	 * Take a look at Cryptocompare's Documentation for more info:
 	 * 
 	 * https://min-api.cryptocompare.com/documentation?key=Price&cat=SingleSymbolPriceEndpoint
 	 * https://min-api.cryptocompare.com/documentation?key=Price&cat=multipleSymbolsPriceEndpoint

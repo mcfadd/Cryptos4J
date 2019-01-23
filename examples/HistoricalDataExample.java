@@ -12,7 +12,8 @@ public class HistoricalDataExample {
 	/**
 	 * This Example demonstrates how to use the Historical Daily OHLCV end point.
 	 * The same approach is used for Historical Hourly OHLCV and Historical Minute
-	 * OHLCV Take a look at Cryptocompare's Documentation for more info:
+	 * OHLCV. 
+         * Take a look at Cryptocompare's Documentation for more info:
 	 * 
 	 * https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistoday
 	 * 

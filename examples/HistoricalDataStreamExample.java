@@ -12,9 +12,9 @@ import exceptions.InvalidArgumentException;
 public class HistoricalDataStreamExample {
 
 	/**
-	 * This Example demonstrates how to use the Historical Daily OHLCV end point to
+	 * This Example demonstrates how to use the Historical Minute OHLCV end point to
 	 * stream TimestampedData. The same approach is used for Historical Hourly OHLCV
-	 * and Historical Minute OHLCV Take a look at Cryptocompare's Documentation for
+	 * and Historical Daily OHLCV. Take a look at Cryptocompare's Documentation for
 	 * more info:
 	 * 
 	 * https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistoday

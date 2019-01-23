@@ -6,8 +6,8 @@ import exceptions.InvalidArgumentException;
 public class CryptoInfoExample {
 
 	/**
-	 * This Example demonstrates how to use the Coins General Info end point. Take a
-	 * look at Cryptocompare's Documentation for more info:
+	 * This Example demonstrates how to use the Coins General Info end point. 
+	 * Take a look at Cryptocompare's Documentation for more info:
 	 * 
 	 * https://min-api.cryptocompare.com/documentation?key=Streaming&cat=coinsGeneralInfoEndpoint
 	 * 

@@ -7,8 +7,8 @@ public class StreamCurrenciesExample {
 
 	/**
 	 * This Example demonstrates how to use the All the Coins end point to extract a
-	 * specific cryptocurrency. Take a look at Cryptocompare's Documentation for
-	 * more info:
+	 * specific cryptocurrency. 
+	 * Take a look at Cryptocompare's Documentation for more info:
 	 * 
 	 * https://min-api.cryptocompare.com/documentation?key=Other&cat=allCoinsWithContentEndpoint
 	 * 
