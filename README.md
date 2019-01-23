@@ -3,7 +3,8 @@
 This API retrieves Cryptocurrency information such as price and historical data from Cryptocomapre's Restful API.
 <br>
 <br>
-**(optional)** After creating an account and api key with Cryptocompare, Cryptos4J allows you to use it.  
+**(optional)**  
+After creating an account and api key with Cryptocompare, Cryptos4J allows you to use it.  
 Take a look at Cryptocompare's [how-to-use-our-api](https://www.cryptocompare.com/coins/guides/how-to-use-our-api/) guide for more info on api keys and how to use them.  
 ### Dependencies
 * [Google gson](https://github.com/google/gson) for parsing json - simply add [gson.jar](https://github.com/mcfadd/Cryptos4J/blob/master/Cryptos4J/gson-2.2.4.jargson.jar) to your build path  
@@ -15,15 +16,15 @@ Take a look at Cryptocompare's [how-to-use-our-api](https://www.cryptocompare.co
 * [Single Symbol Price](https://min-api.cryptocompare.com/documentation?key=Price&cat=SingleSymbolPriceEndpoint):
 Get the current price of any cryptocurrency in any other currency that you need.
 * [Multiple Symbols Price](https://min-api.cryptocompare.com/documentation?key=Price&cat=multipleSymbolsPriceEndpoint):
-Same as single API path but with multiple from symbols.
+Same as Single Symbol Price but with multiple currency from symbols.
 * [Generate Custom Average](https://min-api.cryptocompare.com/documentation?key=Price&cat=generateAverageEndpoint):
 Compute the current trading info (price, vol, open, high, low etc) of the requested pair as a volume weighted average based on the exchanges requested.
 * [Historical Daily OHLCV](https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistoday):
-Get open, high, low, close, volumefrom and volumeto from the daily historical data.
+Get open, high, low, close, volumefrom and volumeto from daily historical data.
 * [Historical Hourly OHLCV](https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistohour):
-Get open, high, low, close, volumefrom and volumeto from the hourly historical data.
+Get open, high, low, close, volumefrom and volumeto from hourly historical data.
 * [Historical Minute OHLCV](https://min-api.cryptocompare.com/documentation?key=Historical&cat=dataHistominute):
-Get open, high, low, close, volumefrom and volumeto from the each minute historical data.
+Get open, high, low, close, volumefrom and volumeto from minute historical data.
 * [Coins General Info](https://min-api.cryptocompare.com/data/coin/generalinfo?fsyms=BTC,MLN,DASH&tsym=USD):
 Get combinations of subs and pricing info in order to know what needs to be streamed and how to connect to the streamers.
 * [All Exchanges and Trading Pairs](https://min-api.cryptocompare.com/documentation?key=Other&cat=allExchangesEndpoint):
@@ -59,4 +60,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```  
-Feel free to contribute and/or give feedback!
