@@ -7,6 +7,7 @@ To use Cryptos4J, simply add **Cryptos4J.jar** and **gson.jar** to your build pa
 **(optional)**  
 After creating an account and api key with Cryptocompare, Cryptos4J allows you to use it.  
 Take a look at Cryptocompare's [how-to-use-our-api](https://www.cryptocompare.com/coins/guides/how-to-use-our-api/) guide for more info on api keys and how to use them.  
+To do this simply call `Util.setApiKey()` and pass your api key as a parameter.
 ### Dependencies
 * [Google gson](https://github.com/google/gson) for parsing json objects.
 
